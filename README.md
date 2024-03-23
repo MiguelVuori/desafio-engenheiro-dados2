@@ -107,3 +107,33 @@ Utilize o arquivo [alunos.csv](https://raw.githubusercontent.com/joaomarceloubc/
 **Avaliação:**
 
 Você será avaliado com base na eficácia do script, na capacidade de lidar com situações não ideais nos dados e na integração bem-sucedida com o Solr. A utilização do GitHub para hospedar o projeto será considerada na avaliação global.
+
+**Get Started:**
+
+1. Dashboard.pbix é o arquivo relativo ao dashboard solicitado.
+3. Instale a biblioteca pysolr
+4. Para rodar o script, antes é necessário subir o container docker relativo ao solr.
+
+```bash
+docker run -d -p 8983:8983 --name solr_instance -t solr
+```
+
+5. Entre no terminal bash do solr e crie um 'core'. Ele será necessário para exportar os dados para o solr.
+
+```bash
+docker exec -it solr_instance bash
+```
+
+```bash
+cd server/solr
+```
+
+```bash
+solr create_core -c alunos
+```
+6. Rode o script 
+
+```bash
+python script.py
+```
+
